@@ -1,0 +1,9 @@
+# hosts-dev
+
+[webservers]
+app1 ansible_host=54.159.98.122
+
+[loabalancers]
+
+[local]
+control ansible_connection=local
