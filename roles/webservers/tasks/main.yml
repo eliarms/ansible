@@ -1,0 +1,15 @@
+---
+# tasks file for roles/webservers
+      - name: Upload application
+        copy:
+          src: ../files/index.php
+          dest: "{{ path_to_app }}"
+          mode: 0755 
+
+
+      - name: Configure php.ini file
+        lineinfile:
+          path: /etc/php.ini
+          regexp: ^short_open_tag
+          line: 'short_open_tag=On'
+        notify: restart apache
